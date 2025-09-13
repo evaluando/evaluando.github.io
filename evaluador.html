@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Evaluador</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+	<div class="admin-sidebar"><center><img src="./img/CEECC2.png"></center>
+            <h2>Panel de Evaluador</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSubsite('tareasAsignadas')">Tareas Asignadas</a></li>
+                    <li><a href="#" onclick="showSubsite('registroEvaluados')">Registro de Evaluados</a></li>
+                    <li><a href="#" onclick="showSubsite('busquedaRegistros')">Búsqueda de Registros</a></li>
+					<li><a href="index.html" >Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="admin-content">
+            <div id="tareasAsignadas" class="subsite active">
+                <h3>Tareas Asignadas</h3>
+                <div class="section-box">
+                    <p>Aquí se muestran las tareas que el administrador ha asignado para su evaluación.</p>
+                    <div id="listaTareas">
+                        </div>
+                </div>
+            </div>
+
+            <div id="registroEvaluados" class="subsite">
+                <h3>Registro de Evaluados</h3>
+                <div class="section-box">
+                    <form id="evaluadoForm">
+                        <div class="form-group">
+                            <label for="fechaEvaluacion">Fecha de Evaluación</label>
+                            <input type="date" id="fechaEvaluacion" name="fechaEvaluacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombreEvaluado">Nombre</label>
+                            <input type="text" id="nombreEvaluado" name="nombreEvaluado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correoEvaluado">Correo Electrónico</label>
+                            <input type="email" id="correoEvaluado" name="correoEvaluado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefonoEvaluado">Número telefónico</label>
+                            <input type="tel" id="telefonoEvaluado" name="telefonoEvaluado" required pattern="[0-9]{10,}" maxlength="15">
+                        </div>
+                        <div class="form-group">
+                            <label for="rfcEvaluado">RFC</label>
+                            <input type="text" id="rfcEvaluado" name="rfcEvaluado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="curpEvaluado">CURP</label>
+                            <input type="text" id="curpEvaluado" name="curpEvaluado" required>
+                        </div>
+                        <!--
+						<div class="form-group">
+                            <label for="dependenciaEvaluado">Dependencia adscrita</label>
+                            <input type="text" id="dependenciaEvaluado" name="dependenciaEvaluado" required>
+							
+						-->	
+							<div class="form-group">
+								<label for="dependenciaEvaluado">Dependencia adscrita</label>
+								<select id="dependenciaEvaluado" name="dependenciaEvaluado" required>
+									<option value="">Seleccione una dependencia.</option>
+									<option value="GDL">GDL - Guadalajara</option>
+									<option value="ZPN">ZPN - Zapopan</option>
+									<option value="TON">TON - Tonala</option>
+									<option value="TLAQ">TLAQ - Tlaquepaque</option>
+									<option value="TLAJ">TLAJ - Tlajomulco</option>
+								</select>
+							</div>
+                        
+                        <div class="form-group">
+                            <label for="cuipEvaluado">CUIP</label>
+                            <input type="text" id="cuipEvaluado" name="cuipEvaluado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoEvaluacion">Tipo de Evaluación</label>
+                            <select id="tipoEvaluacion" name="tipoEvaluacion" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="Toxicológico">Toxicológico</option>
+                                <option value="Clínico">Clínico</option>
+                                <option value="Entrevista Medica">Entrevista Medica</option>
+                                <option value="Recepción">Recepción</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notasEvaluacion">Notas de evaluación</label>
+                            <textarea id="notasEvaluacion" name="notasEvaluacion" rows="5"></textarea>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="btn-success" onclick="guardarRegistro()">Guardar el registro del evaluado</button>
+                            <button type="button" class="btn-primary" onclick="limpiarFormulario()">Limpiar el formulario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="busquedaRegistros" class="subsite">
+                <h3>Búsqueda de Registros</h3>
+                <div id="listaRegistros" class="section-box">
+                    <h4>Lista de Evaluados</h4>
+                    <ul id="registrosList">
+                        </ul>
+                </div>
+                
+                <div id="detalleRegistro" class="section-box" style="display:none;">
+                    <h4>Detalle del Registro</h4>
+                    <div id="infoRegistro"></div>
+                    <div class="form-group">
+                        <label for="resultadoEvaluacion">Resultado</label>
+                        <select id="resultadoEvaluacion">
+                            <option value="No aprobado">No aprobado</option>
+                            <option value="Aprobado">Aprobado</option>
+                            <option value="Aprobado con restricciones">Aprobado con restricciones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notasEvaluacionEdit">Notas de evaluación</label>
+                        <textarea id="notasEvaluacionEdit" name="notasEvaluacionEdit" rows="5"></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn-success" onclick="guardarCambiosRegistro()">Guardar cambios y regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalLimpiar" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('modalLimpiar')">&times;</span>
+            <h3>Advertencia</h3>
+            <p>Se borrarán los datos del formulario. ¿Desea continuar?</p>
+            <div class="modal-buttons">
+                <button class="modal-button" onclick="confirmarLimpiar()">Aceptar</button>
+                <button class="modal-button" onclick="closeModal('modalLimpiar')">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/evaluador.js"></script>
+	<footer class="site-footer">
+    <div class="footer-content">
+        <p>Evaluando ® - 2025</p>
+    </div>
+</footer>
+</body>
+</html>

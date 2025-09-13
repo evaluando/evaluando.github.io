@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Evaluado</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+        <div class="admin-sidebar"><center><img src="./CEECC2.png"></center>
+            <h2>Panel del Evaluado</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSubsite('agenda')">Agenda</a></li>
+                    <li><a href="#" onclick="showSubsite('estatusEvaluacion')">Estatus de Evaluación</a></li>
+                    <li><a href="#" onclick="showSubsite('encuestaSatisfaccion')">Encuesta de Satisfacción</a></li>
+					<li><a href="index.html" >Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="admin-content">
+            <div id="agenda" class="subsite active">
+                <h3>Agenda</h3>
+                <div class="section-box">
+                    <h4>Consultar Cita</h4>
+                    <div id="citasProgramadas"></div>
+                </div>
+                <div class="section-box">
+                    <h4>Cita Reagendada</h4>
+                    <div id="citasReagendadas"></div>
+                </div>
+            </div>
+
+            <div id="estatusEvaluacion" class="subsite">
+                <h3>Estatus de Evaluaciones</h3>
+                <div class="section-box">
+                    <h4>Listado de Evaluaciones</h4>
+                    <div id="evaluacionesEstatus"></div>
+                </div>
+            </div>
+
+            <div id="encuestaSatisfaccion" class="subsite">
+                <h3>Encuesta de Satisfacción</h3>
+                <div id="encuestaListado" class="section-box">
+                    <h4>Evaluaciones para Encuesta</h4>
+                    <div id="evaluacionesEncuesta"></div>
+                </div>
+                <div id="encuestaFormulario" class="section-box" style="display:none;">
+                    <h4>Realizar Encuesta</h4>
+                    <p>Evaluación: <span id="encuestaTitulo"></span></p>
+                    <form id="formEncuesta">
+                        <div class="form-group">
+                            <label>1. Trato en la recepción</label>
+                            <select name="pregunta1" required>
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Mala">Mala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>2. Trato de los evaluadores</label>
+                            <select name="pregunta2" required>
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Mala">Mala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>3. Tiempo de duración de las evaluaciones</label>
+                            <select name="pregunta3" required>
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Mala">Mala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>4. Calidad de las instalaciones</label>
+                            <select name="pregunta4" required>
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Mala">Mala</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="observaciones">Observaciones personales</label>
+                            <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-success">Finalizar Encuesta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalReagendar" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('modalReagendar')">&times;</span>
+            <h4>Reagendar Cita</h4>
+            <div id="reagendarInfo"></div>
+            <div class="form-group">
+                <label for="nuevaFecha">Nueva Fecha</label>
+                <input type="date" id="nuevaFecha" required>
+            </div>
+            <div class="form-group">
+                <label for="justificante">Justificante</label>
+                <textarea id="justificante" rows="3"></textarea>
+            </div>
+            <button class="btn-success" onclick="reagendarCita()">Reagendar</button>
+        </div>
+    </div>
+
+    <script src="./js/evaluado.js"></script>
+	<footer class="site-footer">
+    <div class="footer-content">
+        <p>Evaluando ® - 2025</p>
+    </div>
+</footer>
+</body>
+</html>

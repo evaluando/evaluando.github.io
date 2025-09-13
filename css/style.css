@@ -1,0 +1,379 @@
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0D3A63; /* Color de fondo del sitio web */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* Estilos para el footer */
+.site-footer {
+    background-color: #061D31;
+    color: #F4F6F9;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    
+    /* Nuevas propiedades para que el footer esté siempre al frente y abajo */
+    position: fixed; /* Mantiene el footer en una posición fija en relación con la ventana del navegador */
+    bottom: 0; /* Lo ancla a la parte inferior de la ventana */
+    left: 0; /* Lo ancla a la parte izquierda */
+    z-index: 1000; /* Asegura que el footer se muestre por encima de otros elementos */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+/* Estilo del contenedor principal para el formulario de login y registro */
+.login-container {
+    width: 80%; /* La tabla ocupará el 80% de la pantalla */
+    max-width: 1200px; /* Ancho máximo para evitar que sea demasiado grande en pantallas amplias */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.login-box {
+    background-color: #BECDDA; /* Color de la caja de login/registro */
+    padding: 30px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    color: #0D3A63;
+    margin-bottom: 20px;
+}
+
+/* Estilo de la tabla para organizar el formulario en 2 columnas */
+.form-table {
+    width: 100%; /* La tabla ocupa el 100% de su contenedor (.login-container) */
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.form-table td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+/* Estilo para los campos de entrada, haciéndolos responsivos */
+.input-group {
+    margin-bottom: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0D3A63;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 95%; /* Se ajusta al 95% del ancho de la celda para tener un pequeño margen */
+    max-width: 400px; /* Ancho máximo para evitar que sean excesivamente largos */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Nuevo estilo para los campos de tipo select */
+.input-group select {
+    width: 95%; /* Se ajusta al 95% del ancho de la celda */
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff; /* Fondo blanco para el select */
+    color: #333; /* Color de texto */
+}
+
+
+
+
+/* Estilos para los botones del formulario */
+.login-button {
+    width: 40%;
+    padding: 12px;
+    background-color: #0D3A63;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0c2e50;
+}
+
+.return-button {
+    width: 40%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #BECDDA;
+    color: #0D3A63;
+    border: 1px solid #0D3A63;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.return-button:hover {
+    background-color: #aebfc7;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    color: #0D3A63;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la ventana emergente (modal) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #BECDDA;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #0D3A63;
+}
+
+.modal-content p {
+    color: #333;
+}
+
+.modal-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal-button {
+    background-color: #0D3A63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-button:hover {
+    background-color: #0c2e50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos del panel de administrador */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F4F6F9;
+}
+
+.admin-sidebar {
+    width: 290px;
+    background-color: #0D3A63;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #BECDDA;
+}
+
+.admin-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.admin-sidebar nav ul li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-sidebar nav ul li a:hover {
+    background-color: #1a4d80;
+}
+
+.admin-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.subsite {
+    display: none;
+}
+
+.subsite.active {
+    display: block;
+}
+
+/* Estilos de los sub-sitios */
+.section-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h3, h4 {
+    color: #0D3A63;
+    border-bottom: 2px solid #BECDDA;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary, .btn-danger, .btn-success {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary { background-color: #0D3A63; }
+.btn-primary:hover { background-color: #0c2e50; }
+
+.btn-danger { background-color: #dc3545; }
+.btn-danger:hover { background-color: #c82333; }
+
+.btn-success { background-color: #28a745; }
+.btn-success:hover { background-color: #218838; }
+
+/* Estilos para los estatus de evaluación */
+.status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+}
+
+.status-en-proceso {
+    background-color: #007bff; /* Azul */
+}
+
+.status-retenido {
+    background-color: #ffc107; /* Anaranjado */
+}
+
+.status-terminado {
+    background-color: #28a745; /* Verde */
+}
+
+/* Estilo para los botones de reagendar */
+.btn-reagendar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #17a2b8;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-reagendar:hover {
+    background-color: #138496;
+}
+

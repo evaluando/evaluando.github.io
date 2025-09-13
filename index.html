@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<center><img src="./img/CEECC.png"></center>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">Iniciar Sesión</button>
+            </form>
+            <div class="links">
+                <a href="registro.html" class="register-link">Regístrate</a>
+                <a href="#" class="forgot-link" onclick="openModal()">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Recuperar Contraseña</h3>
+            <p>Ingresa tu correo electrónico para recibir un enlace de recuperación.</p>
+            <input type="email" placeholder="Correo electrónico" required>
+            <button class="modal-button">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir el modal
+        function openModal() {
+            document.getElementById('modal').style.display = "block";
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        // Cierra el modal si el usuario hace clic fuera de él
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // --- Lógica de validación del formulario de login ---
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // Previene el envío del formulario por defecto
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Credenciales de administrador
+            const adminUser = "admin";
+            const adminPass = "1234";
+
+			// Credenciales de evaluador
+            const evalUser = "evaluador";
+            const evalPass = "1234";
+
+			// Credenciales de evaluado
+            const evalueUser = "evaluado";
+            const evaluePass = "1234";
+
+            // Valida las credenciales administrador
+            if (username === adminUser && password === adminPass) {
+                // Si son correctas, redirige al panel de control
+                window.location.href = "admin.html";
+            }
+
+            // Valida las credenciales evaluado
+            if (username === evalueUser && password === evaluePass) {
+                // Si son correctas, redirige al panel de control
+                window.location.href = "evaluado.html";
+            }
+
+            // Valida las credenciales evaluador
+            if (username === evalUser && password === evalPass) {
+                // Si son correctas, redirige al panel de control
+                window.location.href = "evaluador.html";
+            } else {
+                // Si son incorrectas, muestra una alerta
+                alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+            }
+			
+			
+			
+        });
+    </script>
+	<footer class="site-footer">
+    <div class="footer-content">
+        <p>Evaluando ® - 2025</p>
+    </div>
+</footer>
+</body>
+</html>

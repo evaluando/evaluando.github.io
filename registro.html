@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Registro de Usuario</h2>
+            <form id="registroForm">
+                <table class="form-table">
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <label for="usuario">Usuario</label>
+                                <input type="text" id="usuario" name="usuario" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <label for="contrasena">Contraseña Alfanumérica</label>
+                                <input type="password" id="contrasena" name="contrasena" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <label for="nombres">Nombre(s)</label>
+                                <input type="text" id="nombres" name="nombres" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <label for="apellidoPaterno">Apellido Paterno</label>
+                                <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <label for="apellidoMaterno">Apellido Materno</label>
+                                <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <label for="direccion">Dirección Actual</label>
+                                <input type="text" id="direccion" name="direccion" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+						<td>
+                            <div class="input-group">
+                                <label for="correo">Correo electrónico vigente</label>
+                                <input type="email" id="correo" name="correo" required>
+                            </div>
+                        </td>
+                        <td>
+							<div class="input-group">
+								<label for="telefono">Número de teléfono</label>
+								<input type="number" id="telefono" name="telefono" required pattern="[0-9]{10,}" maxlength="10">
+							</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        
+						<td>
+                            <div class="input-group">
+                                <label for="rfc">RFC</label>
+                                <input type="text" id="rfc" name="rfc" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <label for="curp">CURP</label>
+                                <input type="text" id="curp" name="curp" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+						<td>
+							<div class="input-group">
+								<label for="dependencia">Dependencia adscrita</label>
+								<select id="dependencia" name="dependencia" required>
+									<option value="">Seleccione una dependencia.</option>
+									<option value="GDL">GDL - Guadalajara</option>
+									<option value="ZPN">ZPN - Zapopan</option>
+									<option value="TON">TON - Tonala</option>
+									<option value="TLAQ">TLAQ - Tlaquepaque</option>
+									<option value="TLAJ">TLAJ - Tlajomulco</option>
+								</select>
+							</div>
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <label for="cuip">CUIP</label>
+                                <input type="text" id="cuip" name="cuip" required>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="button-group"><br>
+                    <button type="button" class="login-button" id="btnFinalizar">Finalizar Registro</button>
+                    <button type="button" class="return-button" id="btnRegresar">Regresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalAdvertencia" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('modalAdvertencia')">&times;</span>
+            <h3 id="modalAdvertenciaTitle"></h3>
+            <p id="modalAdvertenciaText"></p>
+            <div class="modal-buttons" id="modalAdvertenciaButtons">
+                </div>
+        </div>
+    </div>
+
+    <script src="./js/registro.js"></script>
+	<footer class="site-footer">
+    <div class="footer-content">
+        <p>Evaluando ® - 2025</p>
+    </div>
+</footer>
+</body>
+</html>

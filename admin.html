@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+	<div class="admin-sidebar"><center><img src="./img/CEECC2.png"></center>
+        
+            <h2>Panel de Administrador</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSubsite('adminUsuarios')">Administrar Usuarios</a></li>
+                    <li><a href="#" onclick="showSubsite('asignarEvaluador')">Asignar Evaluador</a></li>
+                    <li><a href="#" onclick="showSubsite('generarReporte')">Generar Reporte</a></li>
+					<li><a href="index.html" >Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="admin-content">
+            <div id="adminUsuarios" class="subsite active">
+                <h3>Administrar Usuarios</h3>
+                <p>Aquí puedes gestionar los roles de los usuarios registrados.</p>
+                <div class="user-list">
+                    <div class="user-item">
+                        <span>Usuario Ejemplo 1</span>
+                        <button class="btn-primary">Asignar Rol de Evaluador</button>
+                        <button class="btn-danger">Eliminar Rol de Evaluador</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="asignarEvaluador" class="subsite">
+                <h3>Asignar Evaluador y Áreas</h3>
+                <div class="section-box">
+                    <h4>Lista de Evaluadores</h4>
+                    <ul id="listaEvaluadores">
+                        </ul>
+                </div>
+                <div class="section-box">
+                    <h4>Asignar a un Área</h4>
+                    <div class="form-group">
+                        <label for="selectEvaluador">Seleccione un Evaluador:</label>
+                        <select id="selectEvaluador">
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectArea">Seleccione un Área:</label>
+                        <select id="selectArea">
+                            <option value="Toxicológico">Toxicológico</option>
+                            <option value="Clínico">Clínico</option>
+                            <option value="Entrevista Medica">Entrevista Medica</option>
+                            <option value="Recepción">Recepción</option>
+                        </select>
+                    </div>
+                    <button class="btn-success" onclick="asignarEvaluadorArea()">Asignar</button>
+                    <p id="asignacionMensaje"></p>
+                </div>
+            </div>
+
+            <div id="generarReporte" class="subsite">
+                <h3>Generar Reporte Mensual</h3>
+                <p>Este reporte muestra a los evaluadores asignados a las distintas áreas durante un mes específico.</p>
+                <div class="section-box">
+                    <h4>Asignaciones del mes</h4>
+                    <ul id="reporteAsignaciones">
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/admin.js"></script>
+	<footer class="site-footer">
+    <div class="footer-content">
+        <p>Evaluando ® - 2025</p>
+    </div>
+</footer>
+</body>
+</html>
