@@ -85,13 +85,13 @@
             }
 
             // Valida las credenciales evaluado
-            if (username === evalueUser && password === evaluePass) {
+            else if (username === evalueUser && password === evaluePass) {
                 // Si son correctas, redirige al panel de control
                 window.location.href = "evaluado.html";
             }
 
             // Valida las credenciales evaluador
-            if (username === evalUser && password === evalPass) {
+            else if (username === evalUser && password === evalPass) {
                 // Si son correctas, redirige al panel de control
                 window.location.href = "evaluador.html";
             } else {
@@ -109,4 +109,5 @@
     </div>
 </footer>
 </body>
+
 </html>
