@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importador de Datos</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="admin-container">
+	
+        <div class="admin-sidebar"><center><img src="./img/CEECC2.png"></center>
+            <h2>Importar Datos</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSubsite('importarTickMed')">Importar Info. TickMed</a></li>
+                    <li><a href="#" onclick="showSubsite('importarERP')">Importar Info. ERP</a></li>
+					<li><a href="admin.html" >Regresar al panel de control</a></li>
+					<li><a href="index.html" >Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="admin-content">
+            <div id="importarTickMed" class="subsite active">
+                <h3>Importar Información de Evaluado TickMed</h3>
+                <div class="section-box">
+                    <p>Suba el archivo CSV "TickMed-db.csv" y luego haga clic en Ver Expediente.</p>
+                    <input type="file" id="uploadTickMed" accept=".csv" style="display:none;">
+                    <button class="btn-primary" onclick="document.getElementById('uploadTickMed').click()">Subir Archivo</button>
+                    <button class="btn-success" onclick="verExpediente('tickMedData', 'TickMed')">Ver Expediente</button>
+                    <p id="tickMedMessage"></p>
+                </div>
+                <div class="section-box" id="tickMedDataContainer">
+                    </div>
+            </div>
+
+            <div id="importarERP" class="subsite">
+                <h3>Importar Información de Evaluado ERP</h3>
+                <div class="section-box">
+                    <p>Suba el archivo CSV "ERP-db.csv" y luego haga clic en Ver Expediente.</p>
+                    <input type="file" id="uploadERP" accept=".csv" style="display:none;">
+                    <button class="btn-primary" onclick="document.getElementById('uploadERP').click()">Subir Archivo</button>
+                    <button class="btn-success" onclick="verExpediente('erpData', 'ERP')">Ver Expediente</button>
+                    <p id="erpMessage"></p>
+                </div>
+                <div class="section-box" id="erpDataContainer">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/importador.js"></script>
+</body>
+</html>
