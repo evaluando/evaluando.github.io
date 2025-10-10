@@ -73,23 +73,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Función para "guardar" los datos en un archivo de texto
-    function saveDataToFile(data) {
-        const dataString = JSON.stringify(data, null, 2);
+   // function saveDataToFile(data) {
+     //   const dataString = JSON.stringify(data, null, 2);
         
         // Crea un "Blob" (objeto de datos binarios) con el contenido del formulario
-        const blob = new Blob([dataString], { type: 'text/plain' });
+       // const blob = new Blob([dataString], { type: 'text/plain' });
         
         // Crea un enlace temporal para descargar el archivo
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'registro_usuario.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // const a = document.createElement('a');
+        // a.href = URL.createObjectURL(blob);
+        // a.download = 'registro_usuario.txt';
+        // document.body.appendChild(a);
+        // a.click();
+        // document.body.removeChild(a);
         
         // NOTA: Para un entorno real, esta operación debe ser gestionada por un servidor.
         // El código anterior solo permite la descarga del archivo en el navegador del usuario.
         // Para guardarlo en el servidor, se necesita una tecnología backend (ej. PHP, Node.js).
 	// <button class="modal-button" id="btnConfirmarGuardar" onclick="window.location.href='index.html'">Confirmar</button>
     }
+
 });
