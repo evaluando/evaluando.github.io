@@ -1,4 +1,413 @@
 <!DOCTYPE html>
+<html lang="es" style="--gold: #9b7b3f;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrato Gótico de Juego de Roles</title>
+
+<!-- Tipografías: Blackletter y serif elegante -->
+<link href="contrato%20pm_files/css2_ubgx.css" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#e8e3da;            /* Tinta clara */
+    --bg:#0c0b10;             /* Fondo oscuro */
+    --accent:#b40a2e;         /* Rojo sello */
+    --gold:#caa35e;           /* Dorado ornamental */
+    --shadow:#000000;
+    --paper:#141217;          /* Papel gótico */
+  }
+  /*{box-sizing:border-box;}*/
+  html,body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 20% 10%, #1b181f 0%, var(--bg) 70%),
+      linear-gradient(180deg, #0a0910 0%, #0c0b10 100%);
+    color:var(--ink);
+    font-family: "IM Fell English", serif;
+  }
+
+  /* Marco principal con filigranas y borde */
+  .frame{
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2.2rem;
+    position: relative;
+    background:
+      radial-gradient(1000px 600px at 80% 20%, #17131b 0%, var(--paper) 55%, #0e0d12 95%);
+    border: 2px solid rgba(202,163,94,0.35);
+    box-shadow:
+      0 0 0 10px rgba(0,0,0,0.6) inset,
+      0 30px 80px rgba(0,0,0,0.8);
+   /* clip-path: polygon(1% 3%, 99% 2%, 98% 97%, 2% 98%);*/
+  }
+
+  /* Esquinas ornamentales (SVG en pseudo-elementos) */
+  .frame::before,
+  .frame::after{
+    content:"";
+    position:absolute;
+    inset: 0;
+    pointer-events:none;
+    background:
+
+  }
+  .frame::after{
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+  }
+
+  /* Encabezado ritual */
+  .title{
+    text-align:center;
+    margin: 1rem auto 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .title h1{
+    font-family: "UnifrakturMaguntia", cursive;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    margin:0;
+    color: var(--ink);
+    text-shadow:
+      0 2px 0 rgba(0,0,0,0.9),
+      0 12px 40px rgba(202,163,94,0.15);
+  }
+  .title .subtitle{
+    font-style: italic;
+    color: rgba(232,227,218,0.85);
+    margin-top: 0.5rem;
+  }
+
+  /* Divisor gótico */
+  .divider{
+    display:flex;
+    align-items:center;
+    gap: 0.75rem;
+    margin: 1.4rem auto 2rem;
+    width: 85%;
+    opacity:0.85;
+  }
+  .divider .line{
+    height:1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .divider .glyph{
+    font-family: "UnifrakturMaguntia", cursive;
+    font-size: 1.6rem;
+    color: var(--gold);
+    filter: drop-shadow(0 1px 0 #000);
+  }
+
+  /* Sección con borde interior y filigrana superior */
+  section{
+    padding: 1.2rem 1.4rem;
+    border: 1px solid rgba(202,163,94,0.28);
+    margin-bottom: 1.5rem;
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(202,163,94,0.05), transparent 60%),
+      radial-gradient(600px 300px at 50% 0%, rgba(255,255,255,0.03), transparent 60%);
+  }
+  section::before{
+    content:"";
+    position:absolute;
+    top:-1px; left:50%;
+    width: 220px; height: 32px;
+    transform: translateX(-50%);
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="100" viewBox="0 0 600 100"><path d="M20,50 C80,10 120,90 180,50 C240,10 280,90 340,50 C400,10 440,90 500,50" fill="none" stroke="%23caa35e" stroke-width="1.2"/></svg>') center / contain no-repeat;
+    opacity:0.55;
+    pointer-events:none;
+  }
+
+  /* Títulos de sección */
+  h2{
+    font-family: "UnifrakturMaguntia", cursive;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    margin: 0 0 0.8rem;
+    color: var(--ink);
+    text-shadow: 0 2px 0 rgba(0,0,0,0.7);
+  }
+
+  /* Párrafos, sangría y capitular */
+  p{
+    line-height: 1.65;
+    font-size: 1.02rem;
+    color: rgba(232,227,218,0.92);
+    margin: 0.3rem 0 0.8rem;
+  }
+  .dropcap::first-letter{
+    float:left;
+    font-family: "UnifrakturMaguntia", cursive;
+    font-size: 3rem;
+    line-height: 1;
+    padding: 0.2rem 0.5rem 0.1rem 0;
+    color: var(--gold);
+    text-shadow: 0 1px 0 #000;
+  }
+
+  /* Lista ritual con viñetas góticas */
+  ul{
+    list-style:none;
+    padding-left: 0.2rem;
+    margin: 0.6rem 0 0.6rem 0;
+  }
+  li{
+    margin: 0.35rem 0;
+    position: relative;
+    padding-left: 1.4rem;
+  }
+  li::before{
+    content:"✠";
+    position:absolute;
+    left:0;
+    top:0.05rem;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+  strong{ color: var(--ink); }
+
+  /* Caja de nombres */
+  .names{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
+  .name-card{
+    border: 1px dashed rgba(202,163,94,0.35);
+    padding: 0.8rem 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  }
+  .label{
+    font-style: italic;
+    color: rgba(202,163,94,0.9);
+    margin-bottom: 0.2rem;
+  }
+
+  /* Sello de cera */
+  .seal{
+    position: absolute;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background:
+      radial-gradient(50% 60% at 40% 35%, #d4133c, var(--accent) 55%, #74061a 100%),
+      conic-gradient(from 20deg, #a10926, #c31235 30%, #7d0a1f 60%, #b30f30 90%, #a10926);
+    box-shadow:
+      inset 0 -6px 10px rgba(0,0,0,0.6),
+      0 10px 30px rgba(0,0,0,0.5);
+    display:flex; align-items:center; justify-content:center;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.65));
+  }
+  .seal::before{
+    content:"M";
+    font-family: "UnifrakturMaguntia", cursive;
+    font-size: 3rem;
+    color: #ffd9e3;
+    text-shadow: 0 1px 0 #5b0a18;
+  }
+
+  /* Firma caligráfica */
+  .signatures{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .signature-line{
+    border-top: 1px solid rgba(202,163,94,0.4);
+    padding-top: 0.6rem;
+    text-align:center;
+    font-style: italic;
+    color: rgba(232,227,218,0.85);
+  }
+
+  /* Nota de seguridad y consentimiento */
+  .note{
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid rgba(202,163,94,0.45);
+    background: linear-gradient(90deg, rgba(202,163,94,0.06), transparent 60%);
+    font-size: 0.98rem;
+  }
+
+  /* Botón imprimir */
+  .actions{
+    display:flex;
+    justify-content:center;
+    gap: 0.8rem;
+    margin: 2rem 0 0.5rem;
+  }
+  .btn{
+    background: linear-gradient(180deg, #1d1a22, #121019);
+    color: var(--ink);
+    border: 1px solid rgba(202,163,94,0.5);
+    padding: 0.6rem 1rem;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  }
+  .btn:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    background: linear-gradient(180deg, #272330, #16131d);
+  }
+
+  /* Modo impresión */
+  @media print{
+    body{ background: #111; }
+    .frame{
+      margin: 0;
+      box-shadow: none;
+      border: 1.5px solid #bfa067;
+      clip-path: none;
+      page-break-inside: avoid;
+    }
+    .actions, .seal{ display:none !important; }
+    a{ color: #000; }
+  }
+
+  /* Sutil animación de resplandor dorado */
+  @keyframes shimmer{
+    0%{ filter: drop-shadow(0 0 0 rgba(202,163,94,0)); }
+    50%{ filter: drop-shadow(0 0 6px rgba(202,163,94,0.3)); }
+    100%{ filter: drop-shadow(0 0 0 rgba(202,163,94,0)); }
+  }
+  .divider .glyph{ animation: shimmer 4.5s ease-in-out infinite; }
+</style>
+</head>
+
+<body>
+  <div class="frame" role="document" aria-label="Contrato Gótico de Juego de Roles">
+    <header class="title" role="banner">
+      <h1>Contrato Gótico de Juego de Roles</h1>
+      <div class="subtitle">Entre las sombras, bajo juramento de complicidad</div>
+      <div class="divider" aria-hidden="true">
+        <div class="line"></div>
+        <div class="glyph">✠</div>
+        <div class="line"></div>
+      </div>
+    </header>
+
+    <section aria-labelledby="partes">
+      <h2 id="partes">Partes del pacto</h2>
+      <div class="names">
+        <div class="name-card">
+          <div class="label">El Amo</div>
+          <p><strong>Nombre:</strong> Okami</p>
+        </div>
+        <div class="name-card">
+          <div class="label">La Sumisa</div>
+          <p><strong>Nombre:</strong></p>
+        </div>
+      </div>
+      <p class="dropcap">Ambas partes acuerdan, de manera libre y 
+voluntaria, participar en un juego de roles marcado por la confianza, el
+ respeto y el misterio, reconociendo que este documento es simbólico y 
+sin validez legal fuera del contexto lúdico.</p>
+    </section>
+
+    <section aria-labelledby="principios">
+      <h2 id="principios">Principios del pacto</h2>
+      <ul>
+        <li><strong>Consentimiento:</strong> Todo acto será acordado previamente y podrá ser retirado en cualquier momento.</li>
+        <li><strong>Seguridad y bienestar:</strong> La integridad física y emocional prevalece sobre cualquier dinámica.</li>
+        <li><strong>Confidencialidad:</strong> Lo compartido en el juego pertenece a quienes lo firman.</li>
+        <li><strong>Revisión:</strong> Este pacto puede modificarse por mutuo acuerdo cuando se considere necesario.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="roles">
+      <h2 id="roles">Roles y juramentos</h2>
+      <p><strong>El Amo:</strong> Guardián de la oscuridad, guía y 
+autoridad del juego; responsable de velar por la seguridad y el 
+bienestar de la Sumisa, de otorgar recompensas y aplicar castigos 
+lúdicos solo dentro de los límites pactados.</p>
+      <p><strong>La Sumisa:</strong> Se entrega al rol con obediencia 
+ritual y plena conciencia, conserva su voz y derecho a detener el juego 
+en cualquier instante y podrá expresar necesidades, deseos y límites 
+antes, durante y después de cada sesión.</p>
+    </section>
+
+    <section aria-labelledby="palabras">
+      <h2 id="palabras">Palabras de poder</h2>
+      <ul>
+        <li><strong>Rojo:</strong> Detener de inmediato el juego y atender.</li>
+        <li><strong>Amarillo:</strong> Precaución; ajustar ritmo o intensidad.</li>
+        <li><strong>Verde:</strong> Continuar sin cambios.</li>
+      </ul>
+      <p><strong>Señales no verbales opcionales:</strong> Golpe leve en la superficie, levantar la mano, tocar tres veces el hombro.</p>
+    </section>
+
+    <section aria-labelledby="limites">
+      <h2 id="limites">Límites y alcances</h2>
+      <p><strong>Absolutos:</strong> ________________________ (ej. dolor real, humillación fuera del juego, riesgo físico/psicológico).</p>
+      <p><strong>Flexibles:</strong> ________________________ (ej. restricción simbólica, tareas rituales, lenguaje con tono dominante).</p>
+      <p><strong>Preferencias:</strong> ________________________ (ej. vestimenta, música, iluminación, accesorios).</p>
+    </section>
+
+    <section aria-labelledby="recompensas">
+      <h2 id="recompensas">Recompensas y castigos lúdicos</h2>
+      <p><strong>Recompensas:</strong> Privilegios rituales, elogios solemnes, gestos afectivos, acceso a experiencias exclusivas del juego.</p>
+      <p><strong>Castigos:</strong> Pruebas de obediencia, tareas simbólicas, restricción temporal de privilegios, siempre consensuadas y seguras.</p>
+    </section>
+
+    <section aria-labelledby="rituales">
+      <h2 id="rituales">Rituales de apertura y cierre</h2>
+      <p><strong>Apertura:</strong> “Que las sombras nos envuelvan”. Señal de inicio para diferenciar el juego de la vida cotidiana.</p>
+      <p><strong>Cierre:</strong> “La oscuridad se disipa, el pacto descansa”. Señal de fin que marca el retorno y dispone el cuidado posterior.</p>
+    </section>
+
+    <section aria-labelledby="aftercare">
+      <h2 id="aftercare">Cuidado posterior</h2>
+      <p><strong>Descompresión:</strong> Tiempo para conversar, hidratarse y reconectar sin roles.</p>
+      <p><strong>Validación:</strong> Expresar sensaciones, ajustar límites y celebrar lo que funcionó.</p>
+      <p><strong>Revisión:</strong> Anotar cambios deseados y acordar próximas experiencias.</p>
+    </section>
+
+    <section aria-labelledby="vigencia">
+      <h2 id="vigencia">Vigencia y modificación</h2>
+      <p>Este pacto permanecerá activo mientras ambas partes lo deseen y
+ podrá ser modificado o terminado por mutuo acuerdo, con comunicación 
+clara y respetuosa.</p>
+    </section>
+
+    <section aria-labelledby="firmas">
+      <h2 id="firmas">Firmas rituales</h2><br><br>
+      <div class="signatures">
+        <div class="signature-line">El Amo: </div>
+        <div class="signature-line">La Sumisa: </div><br>
+      </div>
+      <div class="note">
+        <strong>Nota:</strong> Este contrato es un artefacto estético y 
+simbólico para juego de roles. La seguridad, el consentimiento y el 
+bienestar de ambas partes están por encima de cualquier dinámica.
+      </div>
+      
+    </section>
+
+    
+  </div>
+
+<script>
+  function toggleGold(){
+    const root = document.documentElement;
+    const current = getComputedStyle(root).getPropertyValue('--gold').trim();
+    root.style.setProperty('--gold', current === '#caa35e' ? '#9b7b3f' : '#caa35e');
+  }
+</script>
+
+</body></html>
+
+
+
+<!-- old index -->
+
+
+
+<!--DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
